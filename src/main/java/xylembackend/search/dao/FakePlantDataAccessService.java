@@ -39,11 +39,27 @@ public class FakePlantDataAccessService implements PlantDao {
 
     @Override
     public int deletePlant(UUID id) {
-        return 0;
+        Optional<Plant> plantSingle = getPlant(id);
+        if (plantSingle.isEmpty()) {
+            return 0;
+        } 
+        DB.remove(plantSingle.get());
+        return 1;
     }
 
     @Override
-    public int updatePlant(UUID id, Plant plant) {
-        return 0;
+    public int updatePlant(UUID id, Plant updatedPlant) {
+        return getPlant(id)
+                .map(p -> {
+                    int plantIndex = DB.indexOf(p);
+                    if (plantIndex >= 0) {
+                        DB.set(plantIndex, new Plant(id, updatedPlant.getUserId(), updatedPlant.getCommonName(), updatedPlant.getScientificName(), updatedPlant.getFamilyCommonName(), updatedPlant.getFamily(), updatedPlant.getGenus(), updatedPlant.getYear(), updatedPlant.getImageUrl()));
+                        return 1;
+                    }
+                    else {
+                        return 0;
+                    }
+                })
+                .orElse(0);
     }
 }
