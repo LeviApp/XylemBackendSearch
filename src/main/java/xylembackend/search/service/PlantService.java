@@ -31,4 +31,13 @@ public class PlantService {
     public Optional<Plant> getPlant(UUID id) {
         return plantDao.getPlant(id);
     }
+
+    public int deletePlant(UUID id) {
+        return plantDao.deletePlant(id);
+    }
+
+    public int updatePlant(UUID id, Plant newPlant) {
+        return plantDao.updatePlant(id, newPlant);
+    }
+    
 }
