@@ -8,6 +8,7 @@ import java.util.UUID;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * FakePlantDataAccessService
@@ -27,5 +28,22 @@ public class FakePlantDataAccessService implements PlantDao {
     @Override 
     public List<Plant> allPlants() {
         return DB;
+    }
+
+    @Override
+    public Optional<Plant> getPlant(UUID id) {
+        return DB.stream()
+                .filter(plant -> plant.getId().equals(id))
+                .findFirst();
+    }
+
+    @Override
+    public int deletePlant(UUID id) {
+        return 0;
+    }
+
+    @Override
+    public int updatePlant(UUID id, Plant plant) {
+        return 0;
     }
 }
