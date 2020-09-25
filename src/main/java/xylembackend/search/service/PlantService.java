@@ -1,6 +1,8 @@
 package xylembackend.search.service;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -24,5 +26,9 @@ public class PlantService {
 
     public List<Plant> getAllPlants() {
         return plantDao.allPlants();
+    }
+
+    public Optional<Plant> getPlant(UUID id) {
+        return plantDao.getPlant(id);
     }
 }
