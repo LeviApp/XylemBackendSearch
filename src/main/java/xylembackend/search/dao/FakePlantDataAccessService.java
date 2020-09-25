@@ -24,4 +24,8 @@ public class FakePlantDataAccessService implements PlantDao {
         return 1;
     }
 
+    @Override 
+    public List<Plant> allPlants() {
+        return DB;
+    }
 }

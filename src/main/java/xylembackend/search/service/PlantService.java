@@ -1,5 +1,7 @@
 package xylembackend.search.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -18,5 +20,9 @@ public class PlantService {
     }
     public int addPlant(Plant plant) {
         return plantDao.insertPlant(plant);
+    }
+
+    public List<Plant> getAllPlants() {
+        return plantDao.allPlants();
     }
 }
