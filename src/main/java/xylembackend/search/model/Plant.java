@@ -14,8 +14,11 @@ public class Plant {
     private final String genus;
     private final int year;
     private final String image_url;
+    private final int likes;
+    private final int dislikes;
 
-    public Plant(@JsonProperty("id") UUID id, @JsonProperty("user_id") String user_id, @JsonProperty("common_name") String common_name, @JsonProperty("scientific_name") String scientific_name, @JsonProperty("family_common_name") String family_common_name, @JsonProperty("family") String family, @JsonProperty("genus") String genus, @JsonProperty("year") int year, @JsonProperty("image_url") String image_url) {
+
+    public Plant(@JsonProperty("id") UUID id, @JsonProperty("user_id") String user_id, @JsonProperty("common_name") String common_name, @JsonProperty("scientific_name") String scientific_name, @JsonProperty("family_common_name") String family_common_name, @JsonProperty("family") String family, @JsonProperty("genus") String genus, @JsonProperty("year") int year, @JsonProperty("image_url") String image_url,  @JsonProperty("likes") int likes,  @JsonProperty("dislikes") int dislikes) {
         this.id = id;
         this.user_id = user_id;
         this.common_name = common_name;
@@ -25,6 +28,8 @@ public class Plant {
         this.genus = genus;
         this.year = year;
         this.image_url = image_url;
+        this.likes = likes;
+        this.dislikes = dislikes;
     }
 
     public UUID getId() {
@@ -61,6 +66,14 @@ public class Plant {
 
     public String getImageUrl() {
         return image_url;
+    }
+
+    public int getLikes() {
+        return likes;
+    }
+
+    public int getDislikes() {
+        return year;
     }
 
 }
