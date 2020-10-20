@@ -73,7 +73,7 @@ public class Plant {
     }
 
     public int getDislikes() {
-        return year;
+        return dislikes;
     }
 
 }
