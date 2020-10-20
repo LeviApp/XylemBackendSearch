@@ -13,10 +13,10 @@ import xylembackend.search.model.LikedPlant;
 
 @Service
 public class LikedPlantService {
-    private final likedplantDao;
+    private final LikedPlantDao likedplantDao;
 
     @Autowired
-    public LikedPlantService(@Qualifier("fakeDao") LikedPlantDao likedplantDao) {
+    public LikedPlantService(@Qualifier("fakeLikedDao") LikedPlantDao likedplantDao) {
         this.likedplantDao = likedplantDao;
     }
     public int addLikedPlant(LikedPlant plant) {
