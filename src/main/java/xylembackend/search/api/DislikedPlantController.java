@@ -17,43 +17,42 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import xylembackend.search.model.LikedPlant;
-import xylembackend.search.service.LikedPlantService;
+import xylembackend.search.model.DislikedPlant;
+import xylembackend.search.service.DislikedPlantService;
 
-@RequestMapping("api/plant/liked")
+@RequestMapping("api/plant/disliked")
 @RestController
-public class LikedPlantController {
-
-    private final LikedPlantService likedplantService;
+public class DislikedPlantController {
+    private final DislikedPlantService dislikedplantService;
 
     @Autowired
-    public LikedPlantController(LikedPlantService likedplantService) {
-        this.likedplantService = likedplantService;
+    public DislikedPlantController(DislikedPlantService dislikedplantService) {
+        this.dislikedplantService = dislikedplantService;
     }
 
     @PostMapping
-    public void addLikedPlant(@RequestBody LikedPlant plant) {
-        likedplantService.addLikedPlant(plant);
+    public void addDislikedPlant(@RequestBody DislikedPlant plant) {
+        dislikedplantService.addDislikedPlant(plant);
     }
 
     @GetMapping
-    public List<LikedPlant> getAllPlants() {
-        return likedplantService.getAllLikedPlants();
+    public List<DislikedPlant> getAllPlants() {
+        return dislikedplantService.getAllDislikedPlants();
     }
 
     @GetMapping(path="{id}")
-    public LikedPlant getLikedPlant(@PathVariable("id") UUID id) {
-        return likedplantService.getLikedPlant(id)
+    public DislikedPlant getDislikedPlant(@PathVariable("id") UUID id) {
+        return dislikedplantService.getDislikedPlant(id)
             .orElse(null);
     }
 
     @DeleteMapping(path="{id}")
     public void deletePlant(@PathVariable("id") UUID id) {
-        likedplantService.deleteLikedPlant(id);
+        dislikedplantService.deleteDislikedPlant(id);
     }
 
     @PutMapping(path="{id}")
-    public void updateLikedPlant(@PathVariable("id") UUID id, @RequestBody LikedPlant newLikedPlant) {
-        likedplantService.updateLikedPlant(id, newLikedPlant);
+    public void updateDislikedPlant(@PathVariable("id") UUID id, @RequestBody DislikedPlant newDislikedPlant) {
+        dislikedplantService.updateDislikedPlant(id, newDislikedPlant);
     }
 }
