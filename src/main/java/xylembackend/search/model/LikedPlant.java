@@ -9,6 +9,7 @@ import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+
 // @Entity
 // @Table(
 //     name="fakeLikedDao", 
@@ -18,15 +19,20 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class LikedPlant {
 
     private final UUID id;
-    private final String userId;
-    private final String plantId;
-    private final String uniqueId;
 
-    public LikedPlant(@JsonProperty("id") UUID id, @JsonProperty("userId") String userId, @JsonProperty("plantId") String plantId, @JsonProperty("uniqueId") String uniqueId) {
+    // @Column(unique=true)
+    private final String userId;
+
+    // @Column(unique=true)
+    private final String plantId;
+    
+    private final Boolean liked;
+
+    public LikedPlant(@JsonProperty("id") UUID id, @JsonProperty("userId") String userId, @JsonProperty("plantId") String plantId, @JsonProperty("liked") Boolean liked) {
         this.id = id;
         this.userId = userId;
         this.plantId = plantId;
-        this.uniqueId = uniqueId;
+        this.liked = liked;
 
     }
 
@@ -42,7 +48,7 @@ public class LikedPlant {
         return plantId;
     }
 
-    public String getUniqueId() {
-        return uniqueId;
+    public Boolean getLiked() {
+        return liked;
     }
 }
