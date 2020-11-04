@@ -21,7 +21,7 @@ public class FakePlantDataAccessService implements PlantDao {
 
     @Override 
     public int insertPlant(UUID id, Plant plant) {
-        DB.add(new Plant(id, plant.getUserId(), plant.getCommonName(), plant.getScientificName(), plant.getFamilyCommonName(), plant.getFamily(), plant.getGenus(), plant.getYear(), plant.getImageUrl(), plant.getLikes(), plant.getDislikes()));
+        DB.add(new Plant(id, plant.getUserId(), plant.getCommonName(), plant.getScientificName(), plant.getFamilyCommonName(), plant.getFamily(), plant.getGenus(), plant.getYear(), plant.getImageUrl()));
         return 1;
     }
 
@@ -53,7 +53,7 @@ public class FakePlantDataAccessService implements PlantDao {
                 .map(p -> {
                     int plantIndex = DB.indexOf(p);
                     if (plantIndex >= 0) {
-                        DB.set(plantIndex, new Plant(id, updatedPlant.getUserId(), updatedPlant.getCommonName(), updatedPlant.getScientificName(), updatedPlant.getFamilyCommonName(), updatedPlant.getFamily(), updatedPlant.getGenus(), updatedPlant.getYear(), updatedPlant.getImageUrl(), updatedPlant.getLikes(), updatedPlant.getDislikes()));
+                        DB.set(plantIndex, new Plant(id, updatedPlant.getUserId(), updatedPlant.getCommonName(), updatedPlant.getScientificName(), updatedPlant.getFamilyCommonName(), updatedPlant.getFamily(), updatedPlant.getGenus(), updatedPlant.getYear(), updatedPlant.getImageUrl()));
                         return 1;
                     }
                     else {

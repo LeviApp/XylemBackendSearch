@@ -21,7 +21,7 @@ public class FakeLikedPlantDataAccessService implements LikedPlantDao {
 
     @Override 
     public int insertLikedPlant(UUID id, LikedPlant plant) {
-        DB.add(new LikedPlant(id, plant.getUserId(), plant.getPlantId(), plant.getUniqueId()));
+        DB.add(new LikedPlant(id, plant.getUserId(), plant.getPlantId(), plant.getLiked()));
         return 1;
     }
 
@@ -53,7 +53,7 @@ public class FakeLikedPlantDataAccessService implements LikedPlantDao {
                 .map(p -> {
                     int plantIndex = DB.indexOf(p);
                     if (plantIndex >= 0) {
-                        DB.set(plantIndex, new LikedPlant(id, updatedPlant.getUserId(), updatedPlant.getPlantId(), updatedPlant.getUniqueId()));
+                        DB.set(plantIndex, new LikedPlant(id, updatedPlant.getUserId(), updatedPlant.getPlantId(), updatedPlant.getLiked()));
                         return 1;
                     }
                     else {
