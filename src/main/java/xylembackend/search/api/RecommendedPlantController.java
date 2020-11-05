@@ -17,43 +17,43 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import xylembackend.search.model.Plant;
+import xylembackend.search.model.RecommendedPlant;
 import xylembackend.search.service.RecommendedPlantService;
 
-@RequestMapping("api/recommendedplant")
+@RequestMapping("api/plant/recommended")
 @RestController
 public class RecommendedPlantController {
-    private final RecommendedPlantService plantService;
+    private final RecommendedPlantService recommendedplantService;
 
     @Autowired
-    public PlantController(PlantService plantService) {
-        this.plantService = plantService;
+    public RecommendedPlantController(RecommendedPlantService recommendedplantService) {
+        this.recommendedplantService = recommendedplantService;
     }
 
     @PostMapping
-    public void addPlant(@RequestBody Plant plant) {
-        plantService.addPlant(plant);
+    public void addPlant(@RequestBody RecommendedPlant plant) {
+        recommendedplantService.addRecommendedPlant(plant);
     }
 
     @GetMapping
-    public List<Plant> getAllPlants() {
-        return plantService.getAllPlants();
+    public List<RecommendedPlant> getAllRecommendedPlants() {
+        return recommendedplantService.getAllRecommendedPlants();
     }
 
     @GetMapping(path="{id}")
-    public Plant getPlant(@PathVariable("id") UUID id) {
-        return plantService.getPlant(id)
+    public RecommendedPlant getRecommendedPlant(@PathVariable("id") UUID id) {
+        return recommendedplantService.getRecommendedPlant(id)
             .orElse(null);
     }
 
     @DeleteMapping(path="{id}")
-    public void deletePlant(@PathVariable("id") UUID id) {
-        plantService.deletePlant(id);
+    public void deleteRecommendedPlant(@PathVariable("id") UUID id) {
+        recommendedplantService.deleteRecommendedPlant(id);
     }
 
     @PutMapping(path="{id}")
-    public void updatePlant(@PathVariable("id") UUID id, @RequestBody Plant newPlant) {
-        plantService.updatePlant(id, newPlant);
+    public void updateRecommendedPlant(@PathVariable("id") UUID id, @RequestBody RecommendedPlant newPlant) {
+        recommendedplantService.updateRecommendedPlant(id, newPlant);
     }
 
 }

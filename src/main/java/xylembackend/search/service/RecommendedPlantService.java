@@ -16,7 +16,7 @@ public class RecommendedPlantService {
     private final RecommendedPlantDao recommendedplantDao;
 
     @Autowired
-    public RecommendedPlantService(@Qualifier("fakeDao") RecommendedPlantDao recommendedplantDao) {
+    public RecommendedPlantService(@Qualifier("fakeRecommendedDao") RecommendedPlantDao recommendedplantDao) {
         this.recommendedplantDao = recommendedplantDao;
     }
     public int addRecommendedPlant(RecommendedPlant recommendedPlant) {
@@ -31,11 +31,11 @@ public class RecommendedPlantService {
         return recommendedplantDao.getRecommendedPlant(id);
     }
 
-    public int deletePlant(UUID id) {
+    public int deleteRecommendedPlant(UUID id) {
         return recommendedplantDao.deleteRecommendedPlant(id);
     }
 
-    public int updatePlant(UUID id, RecommendedPlant newPlant) {
+    public int updateRecommendedPlant(UUID id, RecommendedPlant newPlant) {
         return recommendedplantDao.updateRecommendedPlant(id, newPlant);
     }
 }
