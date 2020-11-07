@@ -1,0 +1,6 @@
+# search:
+#     datasource:
+#         jdbc-url: jdbc:mysql://localhost:3306/xylem
+#         username: root
+#         password: 5Hive!6Ibex!
+#         pool-size: 30

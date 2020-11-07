@@ -1,71 +1,102 @@
 package xylembackend.search.model;
 
 import java.util.UUID;
-// import javax.persistence.Column;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+@Entity
 public class Plant {
-    private final UUID id;
-    private final String userId;
-    private final String commonName;
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private Integer id;    
+    private String userId;
+    private String commonName;
 
-    // @Column(unique=true)
-    private final String scientificName;
+    @Column(unique=true)
+    private String scientificName;
 
-    private final String familyCommonName;
-    private final String family;
-    private final String genus;
-    private final int year;
-    private final String imageUrl;
+    private String familyCommonName;
+    private String family;
+    private String genus;
+    private int year;
+    private String imageUrl;
 
-
-    public Plant(@JsonProperty("id") UUID id, @JsonProperty("userId") String userId, @JsonProperty("commonName") String commonName, @JsonProperty("scientificName") String scientificName, @JsonProperty("familyCommonName") String familyCommonName, @JsonProperty("family") String family, @JsonProperty("genus") String genus, @JsonProperty("year") int year, @JsonProperty("imageUrl") String imageUrl) {
-        this.id = id;
-        this.userId = userId;
-        this.commonName = commonName;
-        this.scientificName = scientificName;
-        this.familyCommonName = familyCommonName;
-        this.family = family;
-        this.genus = genus;
-        this.year = year;
-        this.imageUrl = imageUrl;
+    public int getId() {
+        return id;
     }
 
-    public UUID getId() {
-        return id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getUserId() {
         return userId;
     }
 
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
     public String getCommonName() {
         return commonName;
+    }
+
+    public void setCommonName(String commonName) {
+        this.commonName = commonName;
     }
 
     public String getScientificName() {
         return scientificName;
     }
 
+    public void setScientificName(String scientificName) {
+        this.scientificName = scientificName;
+    }
+    
     public String getFamilyCommonName() {
         return familyCommonName;
+    }
+    
+    public void setFamilyCommonName(String familyCommonName) {
+        this.familyCommonName = familyCommonName;
     }
 
     public String getFamily() {
         return family;
     }
 
+    public void setFamily(String family) {
+        this.family = family;
+    }
+
     public String getGenus() {
         return genus;
     }
+
+    public void setGenus(String genus) {
+        this.genus = genus;
+    }
+
 
     public int getYear() {
         return year;
     }
 
+    public void setYear(int year) {
+        this.year = year;
+    }
+
     public String getImageUrl() {
         return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
 }
