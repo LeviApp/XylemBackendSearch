@@ -77,9 +77,22 @@ public class PlantController {
     //     plantRepo.deleteById(id);
     // }
 
-    // @PutMapping(path="{id}")
-    // public void updatePlant(Integer id, Plant newPlant) {
-    //     plantRepo.save(newPlant);
-    // }
+    @PutMapping("/api/plant/{id}")
+    public ResponseEntity<?> updatePlant(@RequestBody Plant newPlant, @PathVariable("id") Integer id) {
+        try{
+            plantService.deletePlant(id);
+            plantService.addPlant(newPlant);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        catch (NoSuchElementException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
+        }
+    }
+
+    @DeleteMapping("/api/plant/{id}")
+    public void deletePlant(@PathVariable Integer id) {
+        plantService.deletePlant(id);
+    }
 
 }
