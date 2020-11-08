@@ -1,15 +1,15 @@
 
-CREATE TABLE plant (
-    id UUID NOT NULL PRIMARY KEY,
-    userid VARCHAR(100) NOT NULL,
-    commonname VARCHAR(100) NOT NULL,
-    scientificname VARCHAR(100) NOT NULL,
-    familycommonname VARCHAR(100) NOT NULL,
+CREATE TABLE PLANT (
+  	id INT AUTO_INCREMENT PRIMARY KEY,  
+    user_id VARCHAR(100) NOT NULL,
+    common_name VARCHAR(100) NOT NULL,
+    scientific_name VARCHAR(100) NOT NULL,
+    family_common_name VARCHAR(100) NOT NULL,
     family VARCHAR(100) NOT NULL,
     genus VARCHAR(100) NOT NULL,
-    year INT,
-    imageurl VARCHAR(255),
-    UNIQUE (scientificname)
+    year INTEGER,
+    image_url VARCHAR(255),
+    UNIQUE (scientific_name)
 );
 
 

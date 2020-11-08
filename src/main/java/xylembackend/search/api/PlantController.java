@@ -1,6 +1,7 @@
 package xylembackend.search.api;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -9,7 +10,8 @@ import javax.persistence.Id;
 import com.fasterxml.jackson.databind.util.JSONPObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,14 +28,13 @@ import org.yaml.snakeyaml.events.Event.ID;
 import xylembackend.search.model.Plant;
 import xylembackend.search.repo.PlantRepo;
 // import xylembackend.search.service.PlantService;
+import xylembackend.search.service.PlantService;
 
-@Controller
-@RequestMapping("api/plant")
+@RestController
 public class PlantController {
 
     @Autowired
-
-    private PlantRepo plantRepo;
+    private PlantService plantService;
 
     // private UUID id;
     // private String userId;
@@ -47,41 +48,38 @@ public class PlantController {
     // private String genus;
     // private int year;
     // private String imageUrl;
-    @PostMapping
-    public @ResponseBody String addPlant(@RequestParam String userId, @RequestParam String commonName, @RequestParam String scientificName, @RequestParam String familyCommonName, @RequestParam String family, @RequestParam String genus,  @RequestParam int year,  @RequestParam String imageUrl) {
-        Plant plant = new Plant();
-
-        plant.setUserId(userId);
-        plant.setCommonName(commonName);
-        plant.setScientificName(scientificName);
-        plant.setFamilyCommonName(familyCommonName);
-        plant.setFamily(family);
-        plant.setGenus(genus);
-        plant.setYear(year);
-        plant.setImageUrl(imageUrl);
-        plantRepo.save(plant);
-        return "Saved Plant";
+    @PostMapping("/api/plant")
+    public void addPlant(@RequestBody Plant plant) {
+        plantService.addPlant(plant);
     }
 
-    @GetMapping
-    public @ResponseBody Iterable<Plant> getAllPlants() {
+    @GetMapping("/api/plant")
+    public List<Plant> getAllPlants() {
       // This returns a JSON or XML with the users
-      return plantRepo.findAll();
+      return plantService.getAllPlants();
     }
 
-    @GetMapping(path="{id}")
-    public @ResponseBody Optional<Plant> getPlant(@PathVariable("id") Integer id) {
-        return plantRepo.findById(id);
+    @GetMapping("/api/plant/{id}")
+    public ResponseEntity<Plant> getPlant(@PathVariable("id") Integer id) {
+        try {
+            Plant plant = plantService.getPlant(id);
+            return new ResponseEntity<Plant>(plant, HttpStatus.OK);
+        }
+
+        catch(NoSuchElementException e) {
+            return new ResponseEntity<Plant>(HttpStatus.NOT_FOUND);
+
+        }
     }
 
-    @DeleteMapping(path="{id}")
-    public void deletePlant(@PathVariable("id") Integer id) {
-        plantRepo.deleteById(id);
-    }
+    // @DeleteMapping(path="{id}")
+    // public void deletePlant(@PathVariable("id") Integer id) {
+    //     plantRepo.deleteById(id);
+    // }
 
-    @PutMapping(path="{id}")
-    public void updatePlant(Integer id, Plant newPlant) {
-        plantRepo.save(newPlant);
-    }
+    // @PutMapping(path="{id}")
+    // public void updatePlant(Integer id, Plant newPlant) {
+    //     plantRepo.save(newPlant);
+    // }
 
 }
