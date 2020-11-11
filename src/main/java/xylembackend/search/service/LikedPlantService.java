@@ -1,41 +1,35 @@
-// package xylembackend.search.service;
+package xylembackend.search.service;
 
-// import java.util.List;
-// import java.util.Optional;
-// import java.util.UUID;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
-// import org.springframework.beans.factory.annotation.Autowired;
-// import org.springframework.beans.factory.annotation.Qualifier;
-// import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+import xylembackend.search.model.LikedPlant;
+import xylembackend.search.repo.LikedPlantRepo;
 
-// import xylembackend.search.dao.LikedPlantDao;
-// import xylembackend.search.model.LikedPlant;
+@Service
+public class LikedPlantService {
 
-// @Service
-// public class LikedPlantService {
-//     private final LikedPlantDao likedplantDao;
+    @Autowired
+    private LikedPlantRepo likedplantRepo;
 
-//     @Autowired
-//     public LikedPlantService(@Qualifier("fakeLikedDao") LikedPlantDao likedplantDao) {
-//         this.likedplantDao = likedplantDao;
-//     }
-//     public int addLikedPlant(LikedPlant plant) {
-//         return likedplantDao.insertLikedPlant(plant);
-//     }
 
-//     public List<LikedPlant> getAllLikedPlants() {
-//         return likedplantDao.allLikedPlants();
-//     }
+    public List<LikedPlant> getAllLikedPlants() {
+        return likedplantRepo.findAll();
+    }
 
-//     public Optional<LikedPlant> getLikedPlant(UUID id) {
-//         return likedplantDao.getLikedPlant(id);
-//     }
+    public void addLikedPlant(LikedPlant likedplant) {
+        likedplantRepo.save(likedplant);
+    }
 
-//     public int deleteLikedPlant(UUID id) {
-//         return likedplantDao.deleteLikedPlant(id);
-//     }
+    public LikedPlant getLikedPlant(Integer id) {
+        return likedplantRepo.findById(id).get();
+    }
 
-//     public int updateLikedPlant(UUID id, LikedPlant newLikedPlant) {
-//         return likedplantDao.updateLikedPlant(id, newLikedPlant);
-//     }
-// }
+    public void deleteLikedPlant(Integer id) {
+        likedplantRepo.deleteById(id);
+    }
+}
