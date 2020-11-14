@@ -32,4 +32,8 @@ public class LikedPlantService {
     public void deleteLikedPlant(Integer id) {
         likedplantRepo.deleteById(id);
     }
+
+    public Long countLikedPlant(Integer plantid) {
+        return likedplantRepo.countLikedPlants(plantid);
+    }
 }
