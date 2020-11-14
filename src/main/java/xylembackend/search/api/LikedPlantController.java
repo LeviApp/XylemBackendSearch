@@ -50,6 +50,14 @@ public class LikedPlantController {
         }
     }
 
+    @GetMapping("api/plant/countliked/{id}")
+    public Long getLikedPlantCount(@PathVariable("id") Integer id) {
+
+            return likedplantService.countLikedPlant(id);
+        
+        
+    }
+
     @DeleteMapping("api/plant/liked/{id}")
     public void deletePlant(@PathVariable("id") Integer id) {
         likedplantService.deleteLikedPlant(id);

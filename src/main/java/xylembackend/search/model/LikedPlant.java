@@ -19,8 +19,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 //     uniqueConstraints=
 //        @UniqueConstraint(columnNames={"userId", "plantId"})
 // )
-@Entity
 @Table(name = "LIKEDPLANT")
+@Entity(name = "LIKEDPLANT")
 public class LikedPlant {
 
     private Integer id;    
