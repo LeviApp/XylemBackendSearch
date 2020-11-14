@@ -52,10 +52,12 @@ public class LikedPlantController {
 
     @GetMapping("api/plant/countliked/{id}")
     public Long getLikedPlantCount(@PathVariable("id") Integer id) {
-
             return likedplantService.countLikedPlant(id);
-        
-        
+    }
+
+    @GetMapping("api/plant/countdisliked/{id}")
+    public Long getDislikedPlantCount(@PathVariable("id") Integer id) {
+            return likedplantService.countDislikedPlant(id);
     }
 
     @DeleteMapping("api/plant/liked/{id}")

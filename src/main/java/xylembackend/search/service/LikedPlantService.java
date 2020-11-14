@@ -36,4 +36,8 @@ public class LikedPlantService {
     public Long countLikedPlant(Integer plantid) {
         return likedplantRepo.countLikedPlants(plantid);
     }
+
+    public Long countDislikedPlant(Integer plantid) {
+        return likedplantRepo.countDislikedPlants(plantid);
+    }
 }
