@@ -33,5 +33,12 @@ public class PlantService {
     public void deletePlant(Integer id) {
         plantRepo.deleteById(id);
     }
-    
+
+    public List<Plant> orderByLikesDesc(Boolean bool) {
+        return plantRepo.orderByLikesDesc(bool);
+    }
+
+    public List<Plant> orderByLikesAsc(Boolean bool) {
+        return plantRepo.orderByLikesAsc(bool);
+    }
 }

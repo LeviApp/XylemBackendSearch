@@ -39,7 +39,4 @@ public class LikedPlantService {
         return likedplantRepo.countLikedPlants(plantid);
     }
 
-    public List<Plant> combineDislikedPlantsCount() {
-        return likedplantRepo.combineDislikedPlantsCount();
-    }
 }

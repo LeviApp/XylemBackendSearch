@@ -59,6 +59,18 @@ public class PlantController {
       return plantService.getAllPlants();
     }
 
+    @GetMapping("/api/plant/order/likes_{bool}_desc")
+    public List<Plant> orderByLikesDesc(@PathVariable("bool") Boolean bool) {
+      // This returns a JSON or XML with the users
+      return plantService.orderByLikesDesc(bool);
+    }
+
+    @GetMapping("/api/plant/order/likes_{bool}_asc")
+    public List<Plant> orderByLikesAsc(@PathVariable("bool") Boolean bool) {
+      // This returns a JSON or XML with the users
+      return plantService.orderByLikesAsc(bool);
+    }
+
     @GetMapping("/api/plant/{id}")
     public ResponseEntity<Plant> getPlant(@PathVariable("id") Integer id) {
         try {

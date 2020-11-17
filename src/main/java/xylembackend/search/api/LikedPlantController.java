@@ -57,11 +57,6 @@ public class LikedPlantController {
     }
 
 
-    @GetMapping("api/plant/dislikedgroup")
-    public List<Plant>  combineDislikedPlantsCount() {
-            return likedplantService.combineDislikedPlantsCount();
-    }
-
     @DeleteMapping("api/plant/liked/{id}")
     public void deletePlant(@PathVariable("id") Integer id) {
         likedplantService.deleteLikedPlant(id);
