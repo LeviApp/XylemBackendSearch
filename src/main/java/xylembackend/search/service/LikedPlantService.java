@@ -7,7 +7,9 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+
 import xylembackend.search.model.LikedPlant;
+import xylembackend.search.model.Plant;
 import xylembackend.search.repo.LikedPlantRepo;
 
 @Service
@@ -33,11 +35,11 @@ public class LikedPlantService {
         likedplantRepo.deleteById(id);
     }
 
-    public Long countLikedPlant(Integer plantid) {
+    public List<Long> countLikedPlant(Integer plantid) {
         return likedplantRepo.countLikedPlants(plantid);
     }
 
-    public Long countDislikedPlant(Integer plantid) {
-        return likedplantRepo.countDislikedPlants(plantid);
+    public List<Plant> combineDislikedPlantsCount() {
+        return likedplantRepo.combineDislikedPlantsCount();
     }
 }

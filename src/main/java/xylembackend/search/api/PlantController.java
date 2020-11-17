@@ -72,6 +72,19 @@ public class PlantController {
         }
     }
 
+    // @GetMapping("/api/plant/dislikegroup/{id}")
+    // public ResponseEntity<Plant> getCombinedDislikedPlant(@PathVariable("id") Integer id) {
+    //     try {
+    //         Plant plant = plantService.getCombinedDislikedPlant(id);
+    //         return new ResponseEntity<Plant>(plant, HttpStatus.OK);
+    //     }
+
+    //     catch(NoSuchElementException e) {
+    //         return new ResponseEntity<Plant>(HttpStatus.NOT_FOUND);
+
+    //     }
+    // }
+
     // @DeleteMapping(path="{id}")
     // public void deletePlant(@PathVariable("id") Integer id) {
     //     plantRepo.deleteById(id);
