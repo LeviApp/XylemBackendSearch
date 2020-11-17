@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import xylembackend.search.model.LikedPlant;
+import xylembackend.search.model.Plant;
 import xylembackend.search.service.LikedPlantService;
 
 @RestController
@@ -51,13 +52,14 @@ public class LikedPlantController {
     }
 
     @GetMapping("api/plant/countliked/{id}")
-    public Long getLikedPlantCount(@PathVariable("id") Integer id) {
+    public List<Long> getLikedPlantCount(@PathVariable("id") Integer id) {
             return likedplantService.countLikedPlant(id);
     }
 
-    @GetMapping("api/plant/countdisliked/{id}")
-    public Long getDislikedPlantCount(@PathVariable("id") Integer id) {
-            return likedplantService.countDislikedPlant(id);
+
+    @GetMapping("api/plant/dislikedgroup")
+    public List<Plant>  combineDislikedPlantsCount() {
+            return likedplantService.combineDislikedPlantsCount();
     }
 
     @DeleteMapping("api/plant/liked/{id}")

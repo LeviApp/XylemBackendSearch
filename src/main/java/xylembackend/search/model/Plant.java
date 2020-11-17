@@ -13,8 +13,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import jdk.jfr.DataAmount;
 
 
-@Entity
 @Table(name = "PLANT")
+@Entity(name = "PLANT")
 public class Plant {
     private Integer id;    
     private String user_id;
