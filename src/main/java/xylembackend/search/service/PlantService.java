@@ -6,6 +6,7 @@ import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import xylembackend.search.dao.PlantDao;
@@ -40,5 +41,21 @@ public class PlantService {
 
     public List<Plant> orderByLikesAsc(Boolean bool) {
         return plantRepo.orderByLikesAsc(bool);
+    }
+
+    public List<Plant> orderByScientificNameAsc() {
+        return plantRepo.orderByScientificNameAsc();
+    }
+
+    public List<Plant> orderByScientificNameDesc() {
+        return plantRepo.orderByScientificNameDesc();
+    }
+
+    public List<Plant> orderByCommonNameAsc() {
+        return plantRepo.orderByCommonNameAsc();
+    }
+
+    public List<Plant> orderByCommonNameDesc() {
+        return plantRepo.orderByCommonNameDesc();
     }
 }

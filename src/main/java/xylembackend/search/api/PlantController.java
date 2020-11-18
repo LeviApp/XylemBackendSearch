@@ -59,6 +59,30 @@ public class PlantController {
       return plantService.getAllPlants();
     }
 
+    @GetMapping("/api/plant/order/scientific_name_asc")
+    public List<Plant> orderByScientificNameAsc() {
+      // This returns a JSON or XML with the users
+      return plantService.orderByScientificNameAsc();
+    }
+
+    @GetMapping("/api/plant/order/scientific_name_desc")
+    public List<Plant> orderByScientificNameDesc() {
+      // This returns a JSON or XML with the users
+      return plantService.orderByScientificNameDesc();
+    }
+
+    @GetMapping("/api/plant/order/common_name_asc")
+    public List<Plant> orderByCommonNameAsc() {
+      // This returns a JSON or XML with the users
+      return plantService.orderByCommonNameAsc();
+    }
+
+    @GetMapping("/api/plant/order/common_name_desc")
+    public List<Plant> orderByCommonNameDesc() {
+      // This returns a JSON or XML with the users
+      return plantService.orderByCommonNameDesc();
+    }
+
     @GetMapping("/api/plant/order/likes_{bool}_desc")
     public List<Plant> orderByLikesDesc(@PathVariable("bool") Boolean bool) {
       // This returns a JSON or XML with the users
@@ -70,6 +94,12 @@ public class PlantController {
       // This returns a JSON or XML with the users
       return plantService.orderByLikesAsc(bool);
     }
+
+    // @GetMapping("/api/plant/order/{str}_asc")
+    // public List<Plant> orderByPropAsc(@PathVariable("str") String str) {
+    //   // This returns a JSON or XML with the users
+    //   return plantService.orderByPropAsc(str);
+    // }
 
     @GetMapping("/api/plant/{id}")
     public ResponseEntity<Plant> getPlant(@PathVariable("id") Integer id) {
