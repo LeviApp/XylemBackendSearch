@@ -58,4 +58,20 @@ public class PlantService {
     public List<Plant> orderByCommonNameDesc() {
         return plantRepo.orderByCommonNameDesc();
     }
+
+    public List<Plant> orderByFamilyCommonNameAsc() {
+        return plantRepo.orderByFamilyCommonNameAsc();
+    }
+
+    public List<Plant> orderByFamilyCommonNameDesc() {
+        return plantRepo.orderByFamilyCommonNameDesc();
+    }
+
+    public List<Plant> orderByFamilyAsc() {
+        return plantRepo.orderByFamilyAsc();
+    }
+
+    public List<Plant> orderByFamilyDesc() {
+        return plantRepo.orderByFamilyDesc();
+    }
 }
