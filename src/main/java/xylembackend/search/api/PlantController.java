@@ -98,13 +98,37 @@ public class PlantController {
     @GetMapping("/api/plant/order/family_asc")
     public List<Plant> orderByFamilyAsc() {
       // This returns a JSON or XML with the users
-      return plantService.orderByFamilyCommonNameAsc();
+      return plantService.orderByFamilyAsc();
     }
 
     @GetMapping("/api/plant/order/family_desc")
     public List<Plant> orderByFamilyDesc() {
       // This returns a JSON or XML with the users
-      return plantService.orderByFamilyCommonNameDesc();
+      return plantService.orderByFamilyDesc();
+    }
+
+    @GetMapping("/api/plant/order/genus_asc")
+    public List<Plant> orderByGenusAsc() {
+      // This returns a JSON or XML with the users
+      return plantService.orderByGenusAsc();
+    }
+
+    @GetMapping("/api/plant/order/genus_desc")
+    public List<Plant> orderByGenusDesc() {
+      // This returns a JSON or XML with the users
+      return plantService.orderByGenusDesc();
+    }
+
+    @GetMapping("/api/plant/order/year_asc")
+    public List<Plant> orderByYearAsc() {
+      // This returns a JSON or XML with the users
+      return plantService.orderByYearAsc();
+    }
+
+    @GetMapping("/api/plant/order/year_desc")
+    public List<Plant> orderByYearDesc() {
+      // This returns a JSON or XML with the users
+      return plantService.orderByYearDesc();
     }
 
     @GetMapping("/api/plant/order/likes_{bool}_desc")

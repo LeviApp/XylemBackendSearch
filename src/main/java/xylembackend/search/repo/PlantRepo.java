@@ -42,4 +42,15 @@ public interface PlantRepo extends JpaRepository<Plant, Integer> {
     @Query(value = "SELECT * FROM PLANT ORDER BY family DESC", nativeQuery = true)
     public List<Plant> orderByFamilyDesc();
 
+    @Query(value = "SELECT * FROM PLANT ORDER BY genus", nativeQuery = true)
+    public List<Plant> orderByGenusAsc();
+    
+    @Query(value = "SELECT * FROM PLANT ORDER BY genus DESC", nativeQuery = true)
+    public List<Plant> orderByGenusDesc();
+
+    @Query(value = "SELECT * FROM PLANT ORDER BY year", nativeQuery = true)
+    public List<Plant> orderByYearAsc();
+    
+    @Query(value = "SELECT * FROM PLANT ORDER BY year DESC", nativeQuery = true)
+    public List<Plant> orderByYearDesc();
 }
