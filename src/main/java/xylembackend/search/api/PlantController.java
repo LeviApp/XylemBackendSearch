@@ -83,6 +83,30 @@ public class PlantController {
       return plantService.orderByCommonNameDesc();
     }
 
+    @GetMapping("/api/plant/order/family_common_name_asc")
+    public List<Plant> orderByFamilyCommonNameAsc() {
+      // This returns a JSON or XML with the users
+      return plantService.orderByFamilyCommonNameAsc();
+    }
+
+    @GetMapping("/api/plant/order/family_common_name_desc")
+    public List<Plant> orderByFamilyCommonNameDesc() {
+      // This returns a JSON or XML with the users
+      return plantService.orderByFamilyCommonNameDesc();
+    }
+
+    @GetMapping("/api/plant/order/family_asc")
+    public List<Plant> orderByFamilyAsc() {
+      // This returns a JSON or XML with the users
+      return plantService.orderByFamilyCommonNameAsc();
+    }
+
+    @GetMapping("/api/plant/order/family_desc")
+    public List<Plant> orderByFamilyDesc() {
+      // This returns a JSON or XML with the users
+      return plantService.orderByFamilyCommonNameDesc();
+    }
+
     @GetMapping("/api/plant/order/likes_{bool}_desc")
     public List<Plant> orderByLikesDesc(@PathVariable("bool") Boolean bool) {
       // This returns a JSON or XML with the users
