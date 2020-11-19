@@ -74,4 +74,20 @@ public class PlantService {
     public List<Plant> orderByFamilyDesc() {
         return plantRepo.orderByFamilyDesc();
     }
+
+    public List<Plant> orderByGenusAsc() {
+        return plantRepo.orderByGenusAsc();
+    }
+
+    public List<Plant> orderByGenusDesc() {
+        return plantRepo.orderByGenusDesc();
+    }
+
+    public List<Plant> orderByYearAsc() {
+        return plantRepo.orderByYearAsc();
+    }
+
+    public List<Plant> orderByYearDesc() {
+        return plantRepo.orderByYearDesc();
+    }
 }
