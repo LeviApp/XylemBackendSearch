@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import xylembackend.search.dao.RecommendedPlantDao;
 import xylembackend.search.model.RecommendedPlant;
+import xylembackend.search.model.RecommendedPlantData;
 import xylembackend.search.repo.RecommendedPlantRepo;
 
 @Service
@@ -32,5 +33,13 @@ public class RecommendedPlantService {
 
     public void deleteRecommendedPlant(Integer id) {
         recommendedplantRepo.deleteById(id);
+    }
+
+    public List<RecommendedPlantData> listRecommended(String userid) {
+        System.out.println("Help");
+
+        System.out.println(recommendedplantRepo.listRecommended(userid));
+
+        return recommendedplantRepo.listRecommended(userid);
     }
 }
