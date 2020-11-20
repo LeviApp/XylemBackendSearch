@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import xylembackend.search.model.RecommendedPlant;
+import xylembackend.search.model.RecommendedPlantData;
 import xylembackend.search.service.RecommendedPlantService;
 
 @RestController
@@ -50,6 +51,11 @@ public class RecommendedPlantController {
         catch(NoSuchElementException e) {
             return new ResponseEntity<RecommendedPlant>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping("api/plant/recommended/list/{userid}")
+    public List<RecommendedPlantData> listRecommended(@PathVariable("userid") String userid) {
+        return recommendedplantService.listRecommended(userid);
     }
 
     @PutMapping("api/plant/recommended/{id}")
