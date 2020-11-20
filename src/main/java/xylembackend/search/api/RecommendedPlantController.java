@@ -54,7 +54,7 @@ public class RecommendedPlantController {
     }
 
     @GetMapping("api/plant/recommended/list/{userid}")
-    public List<RecommendedPlantData> listRecommended(@PathVariable("userid") String userid) {
+    public List<Object> listRecommended(@PathVariable("userid") String userid) {
         return recommendedplantService.listRecommended(userid);
     }
 

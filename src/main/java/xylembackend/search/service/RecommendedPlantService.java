@@ -35,8 +35,9 @@ public class RecommendedPlantService {
         recommendedplantRepo.deleteById(id);
     }
 
-    public List<RecommendedPlantData> listRecommended(String userid) {
-        System.out.println("Help");
+    public List<Object> listRecommended(String userid) {
+
+        System.out.println("list of data");
 
         System.out.println(recommendedplantRepo.listRecommended(userid));
 
