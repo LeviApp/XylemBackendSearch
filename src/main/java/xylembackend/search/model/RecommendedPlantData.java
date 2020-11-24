@@ -12,9 +12,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jdk.jfr.DataAmount;
 
-@Entity
-@Table(name = "RECOMMENDEDPLANTDATA")
 public class RecommendedPlantData {
+    @JsonProperty("id")
+
     private Integer id;    
     private String user_id;
     private String common_name;

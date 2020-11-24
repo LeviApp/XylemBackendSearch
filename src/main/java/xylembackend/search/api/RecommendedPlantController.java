@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import xylembackend.search.model.Plant;
 import xylembackend.search.model.RecommendedPlant;
 import xylembackend.search.model.RecommendedPlantData;
 import xylembackend.search.service.RecommendedPlantService;
@@ -54,7 +55,7 @@ public class RecommendedPlantController {
     }
 
     @GetMapping("api/plant/recommended/list/{userid}")
-    public List<RecommendedPlantData> listRecommended(@PathVariable("userid") String userid) {
+    public List<Object> listRecommended(@PathVariable("userid") String userid) {
         return recommendedplantService.listRecommended(userid);
     }
 
