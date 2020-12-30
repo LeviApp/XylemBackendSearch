@@ -62,9 +62,12 @@
 	<build>
 		<plugins>
 			<plugin>
-				<inherited>true</inherited>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>              
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.7.0</version>
+				<configuration>
+					<release>10</release>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
