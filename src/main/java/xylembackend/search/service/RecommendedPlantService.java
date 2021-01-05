@@ -37,11 +37,6 @@ public class RecommendedPlantService {
     }
 
     public List<Object> listRecommended(String userid) {
-
-        System.out.println("list of data");
-
-        System.out.println(recommendedplantRepo.listRecommended(userid));
-
         return recommendedplantRepo.listRecommended(userid);
     }
 }
