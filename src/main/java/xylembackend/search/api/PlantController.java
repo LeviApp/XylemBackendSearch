@@ -24,7 +24,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.yaml.snakeyaml.events.Event.ID;
-
 import xylembackend.search.model.Plant;
 import xylembackend.search.repo.PlantRepo;
 // import xylembackend.search.service.PlantService;
@@ -48,6 +47,13 @@ public class PlantController {
     // private String genus;
     // private int year;
     // private String imageUrl;
+
+    @GetMapping("")
+    public String messageStr() {
+      // This returns a JSON or XML with the users
+      return "{ message: 'API is working' }";
+    }
+
     @PostMapping("/api/plant")
     public void addPlant(@RequestBody Plant plant) {
         plantService.addPlant(plant);
