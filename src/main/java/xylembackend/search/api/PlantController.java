@@ -48,6 +48,7 @@ public class PlantController {
     // private int year;
     // private String imageUrl;
 
+    
     @GetMapping("")
     public String messageStr() {
       // This returns a JSON or XML with the users
