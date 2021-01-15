@@ -1,20 +1,23 @@
-// package xylembackend.search.datasource;
-// import com.zaxxer.hikari.HikariDataSource;
+package xylembackend.search.datasource;
 
-// import org.springframework.boot.context.properties.ConfigurationProperties;
-// import org.springframework.boot.jdbc.DataSourceBuilder;
-// import org.springframework.context.annotation.Bean;
-// import org.springframework.context.annotation.Configuration;
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
-// @Configuration
-// public class MySQLDatasource {
+import javax.sql.DataSource;
 
-//     @Bean
-//     @ConfigurationProperties("search.datasource")
-//     public HikariDataSource hikariDataSource() {
-//         return DataSourceBuilder
-//         .create()
-//         .type(HikariDataSource.class)
-//         .build();
-//     }
-// }
+@Configuration
+public class MySQLDatasource {
+
+    @Value("${spring.datasource.url}")
+    private String dbUrl;
+
+    @Bean
+    public DataSource dataSource() {
+        HikariConfig config = new HikariConfig();
+        config.setJdbcUrl(dbUrl);
+        return new HikariDataSource(config);
+    }
+}
