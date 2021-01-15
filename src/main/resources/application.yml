@@ -1,6 +1,11 @@
-# search:
-#     datasource:
-#         jdbc-url: jdbc:mysql://localhost:3306/xylem
-#         username: root
-#         password: 5Hive!6Ibex!
-#         pool-size: 30
+search:
+    datasource:
+        driverClassName: com.mysql.jdbc.Driver
+        url: jdbc:mysql://us-cdbr-east-02.cleardb.com:3306/heroku_23eb8714b5aa821
+        username: bfa372ca79b90b
+        password: 9252ea14
+    jpa:
+      hibernate.ddl-auto: update
+      generate-ddl: true
+      show-sql: false
+    
