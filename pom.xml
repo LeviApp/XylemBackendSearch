@@ -69,10 +69,10 @@
 					<source>1.8</source>
 					<target>1.8</target>
 					<archive>
-					<manifest>
-						<mainClass>com.roufid.tutorials.AppTest</mainClass>
-					</manifest>
-					</archive>
+						<manifest>
+							<mainClass>org.arpit.java2blog.SearchApplication</mainClass>
+						</manifest>
+                	</archive>
 				</configuration>
 			</plugin>
 
