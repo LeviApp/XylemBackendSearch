@@ -68,12 +68,13 @@
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
-					<archive>
-						<manifest>
-							<mainClass>org.arpit.java2blog.SearchApplication</mainClass>
-						</manifest>
-                	</archive>
 				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>2.0.1.RELEASE</version>
 			</plugin>
 		</plugins>
 	</build>
